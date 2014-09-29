@@ -1,0 +1,67 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Espectaculos list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Idcontribuyente</th>
+                <th>Clase</th>
+                <th>Tipo</th>
+                <th>Genero</th>
+                <th>Fecha</th>
+                <th>Detalle</th>
+                <th>Direccion</th>
+                <th>Horadesde</th>
+                <th>Horahasta</th>
+                <th>Idimpuestoespectaculogratuito</th>
+                <th>Idimpuestocobroentradas</th>
+                <th>Canttotalentradas</th>
+                <th>Valortotalentradas</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('espectaculos_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.idContribuyente }}</td>
+                <td>{{ entity.clase }}</td>
+                <td>{{ entity.tipo }}</td>
+                <td>{{ entity.genero }}</td>
+                <td>{% if entity.fecha %}{{ entity.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.detalle }}</td>
+                <td>{{ entity.direccion }}</td>
+                <td>{{ entity.horaDesde }}</td>
+                <td>{{ entity.horaHasta }}</td>
+                <td>{{ entity.idImpuestoEspectaculoGratuito }}</td>
+                <td>{{ entity.idImpuestoCobroEntradas }}</td>
+                <td>{{ entity.cantTotalEntradas }}</td>
+                <td>{{ entity.valorTotalEntradas }}</td>
+                <td>{{ entity.status }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('espectaculos_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('espectaculos_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('espectaculos_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

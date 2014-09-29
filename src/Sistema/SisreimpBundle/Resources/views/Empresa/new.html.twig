@@ -1,0 +1,112 @@
+{% extends '::base.html.twig' %}
+	{% block stylesheets %}
+    {{ parent() }}     
+    <link href="{{ asset('css/modal.css') }}" type="text/css" rel="stylesheet" />    
+	{% endblock %}    
+{% block body -%}
+<h3 align="center">REGISTRO DE EMPRESAS</h3>
+
+<form name="sistema_sisreimpbundle_empresa" action="{{ path('empresa_create') }}" method="POST" {{ form_enctype(form) }}>
+	{{form_errors(form)}}
+	<table align="center" width="60%" class="recuadro">
+	<tr>
+	<td>
+		<table align="center" align="center" border="0" >
+		<tr>
+			<td>Contribuyente</td>
+			<td>
+			<input type="text" name="contribuyenteNombre" readonly="true">
+			{{ form_widget(form.contribuyenteId) }}(*)
+			<!-- #dialog es el id de un DIV definido en el código que está a continuación -->
+        	<a href="#vmodal"><img src="{{asset('images/b_search.png')}}"></a>
+			</td>
+		</tr>
+		<tr>
+			<td>Rif de la Empresa</td>
+			<td>{{ form_widget(form.rif) }}(*)
+			<img src="{{asset('images/ayuda.gif')}}" class="tooltip"  title="El formato permitido es (V,J,G)-12345678-0. Debe ser un Rif valido.">
+			</td>
+		<tr>
+			<td>Raz&oacute;n Social</td>
+			<td>{{ form_widget(form.razonSocial) }}(*)</td>
+			<tr>
+			<td>Tipo de Contribuyente</td>
+			<td>
+			{{ form_widget(form.tipoContribuyente) }}(*)
+			</td>
+		<tr>
+			<td>Organizaci&oacute;n Econ&oacute;mica</td>
+			<td>
+			{{ form_widget(form.organizacionEconomica) }}(*)
+			</td>
+			<tr>
+			<td>Organizaci&oacute;n Jur&iacute;dica</td>
+			<td>
+			{{ form_widget(form.organizacionJuridica) }}(*)
+			</td>
+		<tr>
+			<td>Representante Legal</td>
+			<td>{{ form_widget(form.representanteLegal) }}(*)</td>
+		<tr>
+			<td>Direcci&oacute;n/Ubicaci&oacute;n</td>
+			<td>{{ form_widget(form.direccion) }}(*)</td>
+		<tr>
+			<td>Tel&eacute;fono</td>
+			<td>{{ form_widget(form.telefonos) }}(*)</td>
+		
+		<tr>
+			<td colspan="2" align="center">			
+			<button type="submit" name="enviar">Enviar</button>
+			<a href="{{ path('empresa') }}"><input type="button" name="volver" value="Volver"></a>
+			</td>
+		</tr>
+		</table>
+	</td>
+	</tr>
+	</table>
+	<div align="center">
+		<img src="{{asset('images/info.jpg')}}">Los campos con (*) deben ser llenados obligatoriamente. 
+	</div>
+
+	<div id="vmodal" class="modalmask">
+		<div class="modalbox resize">
+	   	<h3 align="center">Listado Contribuyentes</h3>
+	    <table class="recuadro" align="center" border="0" cellspacing="0" cellpanding="0">
+	        <thead>
+	            <tr>
+	                <th>Rif</th>
+	                <th>Nombre</th>
+	                <th>Telefono</th>
+	                <th>Seleccionar</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	        {% for c in contrib %}
+	            <tr>
+	                <td>{{ c.rif }}</td>
+	                <td>{{ c.nombre }}</td>
+	                <td>{{ c.telefono }}</td>
+	                <td align="center">
+	                    <a href="#close" class="close" title="Seleccionar" onclick="seleccionar({{c.id}}, '{{c.rif}}', '{{c.nombre}}')">
+	                    	<img src="{{asset('images/okey.png')}}">
+	                    </a>
+	                </td>
+	            </tr>
+	        {% endfor %}
+	        </tbody>
+	    </table>
+		</div>
+	</div>		
+	<script>
+		function seleccionar(id, rif, nombre){
+			document.getElementById("sistema_sisreimpbundle_empresa_contribuyenteId").value=id;
+			document.getElementById("sistema_sisreimpbundle_empresa_rif").value=rif;
+			document.sistema_sisreimpbundle_empresa.contribuyenteNombre.value=nombre;
+			return true;
+		}
+	</script>
+{{form_errors(form)}}
+{{ form_widget(form) }}
+</form>
+<p><br><br><br></p>
+{% endblock %}

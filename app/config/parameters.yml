@@ -1,0 +1,14 @@
+parameters:
+    database_driver: pdo_pgsql
+    database_host: 127.0.0.1
+    database_port: '5432'
+    database_name: bd_sisreimp
+    database_user: postgres
+    database_password: postgres
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: 9bf6a98ae78f8b213411dedd1d460d24c5f4a16b
+    database_path: null

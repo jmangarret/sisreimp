@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<table align="center" width="40%">
+  <tr>
+    <th>
+    <h3>INICIO DE SESION</h3>
+    </th>
+  </tr>
+</table>
+<form action="autenticar.php" method="post">
+	<table align="center" width="40%" class="recuadro">
+        <tr>
+		<td align="right"><img src="{{asset('images/user.png')}}"></td>
+          <td><b>Usuario:</b></td>
+          <td><input type="text" name="login" size="15" /></td>
+        </tr>
+        <tr>
+        <td align="right"><img src="{{asset('images/candado.png')}}"></td>
+          <td><b>Contrase&ntilde;a:</b></td>
+          <td><input type="password" name="clave" size="15" /></td>
+        </tr>
+        <tr>
+        <td align="right"><img src="{{asset('images/ok2.png')}}"></td>
+          <td>       
+              <label for="usercheck"><b>Verificaci&oacute;n:</b></label>   
+          </td>
+          <td>      
+          </td>
+        </tr>
+        <tr>
+        <td colspan="3" align="center">
+          <input name="submit" type="submit" value="Enviar" />
+        </td>
+        </tr>
+	</table>	
+</form>
+<div align="center"><img src="{{asset('images/ayuda.gif')}}">
+	Olvid&oacute; su Contrase&ntilde;a? Para generar una nueva, haga click <a href="">aqui!</a>
+</div>
+<p><br><br></p>
+<p><br><br></p>
+<p><br><br></p>
+<p><br><br></p>
+<p><br><br></p>
+
+{% endblock %}

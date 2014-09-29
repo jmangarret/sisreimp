@@ -1,0 +1,137 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/superfish.css')}}" media="screen">
+<!--   Slide   -->
+<script type="text/javascript" src="{{ asset('js/slide.js')}}"></script>
+<script type="text/javascript" src="{{ asset('js/funciones.js')}}"></script>
+<!--   Fin Slide   -->
+<script type="text/javascript">
+function salir(){
+	if (confirm("Seguro que desea salir?"))
+	location.href="index.php";
+}
+</script>
+<title></title>
+</head>
+<body>
+<table width=85% border=0 align=center>
+<tr>
+<td width=10%>&nbsp;</td>
+<td>
+    <ul class="sf-menu">
+                <li class="current">
+                    <a href="{{ path('inicio_home') }}">Inicio</a>
+                </li>
+
+                <li>
+                    <a>Contribuyentes</a>
+                    <ul>
+                         <li>
+                            <a href="{{path('contribuyente')}}">Administrar</a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a>Rubros</a>
+                    <ul>
+                         <li>
+                            <a href="{{path('rubrostributarios')}}">Administrar</a> 
+                        </li>
+                         <li>
+                            <a href="{{path('tiposimpuestos')}}">Tipos de Impuestos</a> 
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                <a>Actividades Economicas</a>
+                    <ul>
+			<li>
+                            <a href="{{ path('ramos') }}">Ramos</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('clasificacion') }}">Clasificación</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('empresa') }}">Empresas</a>
+                        </li>
+
+                        <li>
+                            <a href="{{ path('licenciaactecon') }}">Licencias</a>
+                        </li>
+
+                  </ul>
+                </li>
+
+                <li>
+                <a>Patente de Vehiculos</a>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tipovehiculo') }}">Tipos de Veh&iacute;culos</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('vehiculos') }}">Vehiculos</a> 
+                        </li>
+                        <li>
+                            <a href="{{ path('patentevehiculo') }}">Patentes</a>
+                        </li>
+
+                  </ul>
+                </li>
+                
+                <li>
+                <a>Espectaculos  Publicos</a>
+                    <ul>
+                        <li>
+                             <a href="{{ path('espectaculosIndex') }}">Administrar</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('espectaculosIndex') }}">Generar Impuesto</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('impespectaculosgratuitos') }}">Imp. Entrada Gratuita</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('impcobroentradas') }}">Imp. Pago de Entradas</a>
+                        </li>
+                  </ul>
+                </li>
+                      
+
+                <li>
+                    <a>Facturacion</a>
+                    <ul>
+                        <li>
+                            <a href="formFactura.php">Generar Factura</a>
+                        </li>
+                        <li>
+                            <a href="buscarFactura.php">Consultar</a>
+                        </li>
+                        <li>
+                            <a href="anularFactura.php">Anular</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a>Utilidades</a>
+                    <ul>
+                        <li>
+                            <a href="cambiar_clave.php">Cambio de Clave</a>
+                        </li>
+                        <li>
+                            <a href="usuarios.php">Administrar Usuarios</a>
+                        </li>
+                    </ul>
+                </li>           
+
+           </ul>
+    </td>    
+    <td>&nbsp;</td>
+</tr>
+</table>
+</body>
+</html>

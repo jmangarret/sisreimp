@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<H2 align="center">BIENVENIDO AL SISTEMA DE RECAUDACION DE IMPUESTOS</H2>
+<H2 align="center">(SISREIMP) </H2>
+<p align=center>
+<img src="{{asset('images/alcaldia.jpg')}}">
+</p>
+<div align="center">	
+	<a href="{{path('inicio_login')}}">
+	<button name="boton" type="button">
+		<img src="{{asset('images/entrar.png')}}" class="tooltip" title="Click para ir al formulario de Inicio de Sesion.">
+	</button>
+	</a>
+</div>
+
+{% endblock %}

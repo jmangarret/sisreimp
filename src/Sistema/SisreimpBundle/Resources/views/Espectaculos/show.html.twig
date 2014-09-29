@@ -1,0 +1,84 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Espectaculos</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Idcontribuyente</th>
+                <td>{{ entity.idContribuyente }}</td>
+            </tr>
+            <tr>
+                <th>Clase</th>
+                <td>{{ entity.clase }}</td>
+            </tr>
+            <tr>
+                <th>Tipo</th>
+                <td>{{ entity.tipo }}</td>
+            </tr>
+            <tr>
+                <th>Genero</th>
+                <td>{{ entity.genero }}</td>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <td>{{ entity.fecha|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Detalle</th>
+                <td>{{ entity.detalle }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ entity.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Horadesde</th>
+                <td>{{ entity.horaDesde }}</td>
+            </tr>
+            <tr>
+                <th>Horahasta</th>
+                <td>{{ entity.horaHasta }}</td>
+            </tr>
+            <tr>
+                <th>Idimpuestoespectaculogratuito</th>
+                <td>{{ entity.idImpuestoEspectaculoGratuito }}</td>
+            </tr>
+            <tr>
+                <th>Idimpuestocobroentradas</th>
+                <td>{{ entity.idImpuestoCobroEntradas }}</td>
+            </tr>
+            <tr>
+                <th>Canttotalentradas</th>
+                <td>{{ entity.cantTotalEntradas }}</td>
+            </tr>
+            <tr>
+                <th>Valortotalentradas</th>
+                <td>{{ entity.valorTotalEntradas }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ entity.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('espectaculos') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('espectaculos_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

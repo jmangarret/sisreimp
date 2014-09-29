@@ -1,0 +1,3 @@
+sistema_sisreimp_homepage:
+    pattern:  /
+    defaults: { _controller: SistemaSisreimpBundle:Default:index }
