@@ -1,0 +1,72 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Empresa</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Contribuyenteid</th>
+                <td>{{ entity.contribuyenteId }}</td>
+            </tr>
+            <tr>
+                <th>Rif</th>
+                <td>{{ entity.rif }}</td>
+            </tr>
+            <tr>
+                <th>Razonsocial</th>
+                <td>{{ entity.razonSocial }}</td>
+            </tr>
+            <tr>
+                <th>Tipocontribuyente</th>
+                <td>{{ entity.tipoContribuyente }}</td>
+            </tr>
+            <tr>
+                <th>Organizacioneconomica</th>
+                <td>{{ entity.organizacionEconomica }}</td>
+            </tr>
+            <tr>
+                <th>Organizacionjuridica</th>
+                <td>{{ entity.organizacionJuridica }}</td>
+            </tr>
+            <tr>
+                <th>Representantelegal</th>
+                <td>{{ entity.representanteLegal }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ entity.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Telefonos</th>
+                <td>{{ entity.telefonos }}</td>
+            </tr>
+            <tr>
+                <th>Fecharegistro</th>
+                <td>{{ entity.fechaRegistro|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ entity.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('empresa') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('empresa_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

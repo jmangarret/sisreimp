@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>impCobroEntradas</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Cantdesde</th>
+                <td>{{ entity.cantDesde }}</td>
+            </tr>
+            <tr>
+                <th>Canthasta</th>
+                <td>{{ entity.cantHasta }}</td>
+            </tr>
+            <tr>
+                <th>Totalut</th>
+                <td>{{ entity.totalUt }}</td>
+            </tr>
+            <tr>
+                <th>Porcentajemontoentradas</th>
+                <td>{{ entity.porcentajeMontoEntradas }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ entity.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('impcobroentradas') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('impcobroentradas_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

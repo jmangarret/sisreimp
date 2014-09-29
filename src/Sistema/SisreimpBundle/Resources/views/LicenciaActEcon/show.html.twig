@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>LicenciaActEcon</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Idempresa</th>
+                <td>{{ entity.idEmpresa }}</td>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <td>{{ entity.fecha|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Vigenciadesde</th>
+                <td>{{ entity.vigenciaDesde|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Vigenciahasta</th>
+                <td>{{ entity.vigenciaHasta|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ entity.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('licenciaactecon') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('licenciaactecon_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

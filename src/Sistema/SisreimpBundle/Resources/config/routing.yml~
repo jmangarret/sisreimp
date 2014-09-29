@@ -1,0 +1,3 @@
+espectaculos_publicos_homepage:
+    pattern:  /
+    defaults: { _controller: EspectaculosPublicosBundle:Default:index }

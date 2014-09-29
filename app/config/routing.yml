@@ -1,0 +1,8 @@
+inicio_home:
+    resource: "@SistemaSisreimpBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+sistema_sisreimp:
+    resource: "@SistemaSisreimpBundle/Resources/config/routing.yml"
+    prefix:   /

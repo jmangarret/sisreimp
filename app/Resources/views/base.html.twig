@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <style type="text/css" title="currentStyle">
+        @import "{{ asset('css/formato.css') }}";                 
+        </style>
+        <script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('js/jqueryTooltip.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('js/ajax.js') }}"></script>                
+        <script>
+        function abrirSubVentana(url){  
+            window.open(url,'','titlebars=0, toolbar=0,scrollbars=1,location=no,directories=no,statusbar=0,menubar=0,resizable=0,width=700,height=400,top=200,left=300');   
+        }
+        </script>        
+        {% block stylesheets %}{% endblock %}        
+    </head>
+    <body>        
+        <table width="100%" border="0">
+          <tr>
+            <th width="100%"><img src="{{ asset('images/cintillo.png') }}" /></th>
+          </tr>
+          <tr>
+            <td width="100%">
+      
+            </td>
+          </tr>
+        </table>
+        <table align=center width="80%" border="0">
+            <tr>
+            <td align=left><img src="{{asset('images/home.jpg')}}"> <b>Usuario:</b> </td> 
+            <td align=right>
+                <a href='salir.php' class='tooltip' title='Cerrar Sesion'><img src="{{ asset('images/logout.gif')}}"><b>Salir</b></a> 
+            </td>
+            </tr>
+        </table>
+        {% include 'menu.html.twig' %}
+        {% block body %}
+            
+
+            {% block mensaje %}  
+
+            {% endblock %}
+
+        {% endblock %}
+        
+        {% block javascripts %}
+
+        {% endblock %}
+        <table align=center width="80%" border="0">
+            <tr>
+            <td align="center">
+                <div align="center" id="piedepagina">
+                <p align="center">
+                    <a href="http://www.apache.org/">
+                        <img src="{{asset('images/apache_pb.gif')}}" alt="Powered by Apache" align="BOTTOM" border="0" height="40" hspace="10" width="200">
+                    </a>
+                    &nbsp;&nbsp;
+                    <a href="http://www.postgresql.org/">
+                        <img src="{{asset('images/postgres.gif')}}" alt="PostgreSQL" align="BOTTOM" border="0" height="40" hspace="10" width="167">
+                    </a>
+                    &nbsp;&nbsp;
+                    <a href="http://www.php.net/">
+                        <img src="{{asset('images/linux-php.jpg')}}" alt="PHP" align="BOTTOM" border="0" height="40" hspace="10" width="88">
+                    </a>
+                    &nbsp;&nbsp;
+                    <a href="http://www.symfony.org/">
+                        <img src="{{asset('images/symfony.png')}}" alt="symfony" align="BOTTOM" border="0" height="40" hspace="10" width="180">
+                    </a>
+                </p>
+                <div align="center" class="fondorojo">
+                CopyLeft 2014 - Alcaldia Bolivariana del Municipio Santos Michelena - Estado Aragua
+                </div>
+                </div>
+            </td>
+            </tr>
+        </table>
+    </body>
+</html>

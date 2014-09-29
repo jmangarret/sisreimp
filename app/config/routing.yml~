@@ -1,0 +1,29 @@
+sistema_sisreimp:
+    resource: "@SistemaSisreimpBundle/Resources/config/routing.yml"
+    prefix:   /
+
+principal_impuestos:
+    resource: "@SistemaSisreimpBundle/Controller/"
+    type:     annotation
+    prefix:   /impuestos
+
+principal_contribuyentes:
+    resource: "@SistemaSisreimpBundle/Controller/"
+    type:     annotation
+    prefix:   /contribuyentes
+
+actividades_economicas_empresas:
+    resource: "@SistemaSisreimpBundle/Controller/"
+    type:     annotation
+    prefix:   /actividades
+
+espectaculos_publicos:
+    resource: "@SistemaSisreimpBundle/Controller/"
+    type:     annotation
+    prefix:   /espectaculos
+
+vehiculos_vehiculos:
+    resource: "@SistemaSisreimpBundle/Controller/"
+    type:     annotation
+    prefix:   /vehiculos
+
