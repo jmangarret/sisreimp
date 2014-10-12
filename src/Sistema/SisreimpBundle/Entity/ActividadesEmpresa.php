@@ -24,23 +24,26 @@ class ActividadesEmpresa
     /**
      * @var integer
      *
-     * @ORM\Column(name="idEmpresa", type="integer")
+	 * @ORM\ManyToOne(targetEntity="Declaracion", inversedBy="ActividadesEmpresas")
+     * @ORM\JoinColumn(name="iddeclaracion", referencedColumnName="id")     * 
      */
-    private $idEmpresa;
+    private $idDeclaracion;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="idActividad", type="integer")
+	 * @ORM\ManyToOne(targetEntity="Clasificacion", inversedBy="ActividadesEmpresas")
+     * @ORM\JoinColumn(name="idactividad", referencedColumnName="id")     * 
+
      */
     private $idActividad;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="fechaInicio", type="date")
+     * @ORM\Column(name="ingreso_bruto", type="decimal")
      */
-    private $fechaInicio;
+    private $ingresoBruto;
 
     /**
      * @var integer
@@ -61,26 +64,26 @@ class ActividadesEmpresa
     }
 
     /**
-     * Set idEmpresa
+     * Set idDeclaracion
      *
-     * @param integer $idEmpresa
+     * @param \Sistema\SisreimpBundle\Entity\Declaracion $idDeclaracion
      * @return ActividadesEmpresa
      */
-    public function setIdEmpresa($idEmpresa)
+    public function setIdDeclaracion(\Sistema\SisreimpBundle\Entity\Declaracion $idDeclaracion = null)
     {
-        $this->idEmpresa = $idEmpresa;
+        $this->idDeclaracion = $idDeclaracion;
 
         return $this;
     }
 
     /**
-     * Get idEmpresa
+     * Get idDeclaracion
      *
-     * @return integer 
+     * @return \Sistema\SisreimpBundle\Entity\Declaracion 
      */
-    public function getIdEmpresa()
+    public function getIdDeclaracion()
     {
-        return $this->idEmpresa;
+        return $this->idDeclaracion;
     }
 
     /**
@@ -107,27 +110,28 @@ class ActividadesEmpresa
     }
 
     /**
-     * Set fechaInicio
+     * Set ingresoBruto
      *
-     * @param \DateTime $fechaInicio
+     * @param string $ingresoBruto
      * @return ActividadesEmpresa
      */
-    public function setFechaInicio($fechaInicio)
+    public function setIngresoBruto($ingresoBruto)
     {
-        $this->fechaInicio = $fechaInicio;
+        $this->ingresoBruto = $ingresoBruto;
 
         return $this;
     }
 
     /**
-     * Get fechaInicio
+     * Get ingresoBruto
      *
-     * @return \DateTime 
+     * @return string 
      */
-    public function getFechaInicio()
+    public function getIngresoBruto()
     {
-        return $this->fechaInicio;
+        return $this->ingresoBruto;
     }
+
 
     /**
      * Set status
@@ -151,4 +155,5 @@ class ActividadesEmpresa
     {
         return $this->status;
     }
+
 }

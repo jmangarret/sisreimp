@@ -21,7 +21,7 @@ class Ramos
      protected $ramos;
      public function __construct()
      {
-        $this->tiposImpuestos = new ArrayCollection();
+        $this->ramos = new ArrayCollection();
      }
     /*Para relacion uno a muchos*/
 

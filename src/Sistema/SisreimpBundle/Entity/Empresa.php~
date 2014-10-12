@@ -1,17 +1,29 @@
 <?php
 
-namespace ActividadesEconomicas\EmpresasBundle\Entity;
+namespace Sistema\SisreimpBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Empresa
  *
- * @ORM\Table("empresas.empresa")
- * @ORM\Entity(repositoryClass="ActividadesEconomicas\EmpresasBundle\Entity\EmpresaRepository")
+ * @ORM\Table("empresa")
+ * @ORM\Entity(repositoryClass="Sistema\SisreimpBundle\Entity\EmpresaRepository")
  */
 class Empresa
 {
+    /**
+     * @ORM\OneToMany(targetEntity="declaracion", mappedBy="empresa")
+     */
+     protected $declaraciones;
+     
+     public function __construct()
+     {
+        $this->declaraciones = new ArrayCollection();
+     }
+    /*Para relacion uno a muchos*/
+
+
     /**
      * @var integer
      *
@@ -24,7 +36,8 @@ class Empresa
     /**
      * @var integer
      *
-     * @ORM\Column(name="contribuyente_id", type="integer")
+     * @ORM\ManyToOne(targetEntity="empresa", inversedBy="contribuyente")
+     * @ORM\JoinColumn(name="contribuyente_id", referencedColumnName="id")  
      */
     private $contribuyenteId;
 
@@ -384,4 +397,43 @@ class Empresa
     {
         return $this->status;
     }
+    
+     public function __toString()
+    {
+        return $this->getRazonSocial() . " - " . $this->getRif();
+    }
+    
+    /**
+     * Add empresas
+     *
+     * @param \Sistema\SisreimpBundle\Entity\Empresa $empresas
+     * @return Empresas
+     */
+    public function addEmpresa(\Sistema\SisreimpBundle\Entity\Empresa $empresas)
+    {
+        $this->empresas[] = $empresas;
+
+        return $this;
+    }
+
+    /**
+     * Remove empresas
+     *
+     * @param \Sistema\SisreimpBundle\Entity\Empresa $empresas
+     */
+    public function removeEmpresa(\Sistema\SisreimpBundle\Entity\Empresa $empresas)
+    {
+        $this->empresas->removeElement($empresas);
+    }
+
+    /**
+     * Get empresas
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEmpresas()
+    {
+        return $this->empresas;
+    }
+    
 }

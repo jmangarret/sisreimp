@@ -1,6 +1,6 @@
 <?php
 
-namespace ActividadesEconomicas\EmpresasBundle\Tests\Controller;
+namespace Sistema\SisreimpBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -19,7 +19,7 @@ class ActividadesEmpresaControllerTest extends WebTestCase
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'actividadeseconomicas_empresasbundle_actividadesempresatype[field_name]'  => 'Test',
+            'sistema_sisreimpbundle_actividadesempresatype[field_name]'  => 'Test',
             // ... other fields to fill
         ));
 
@@ -33,7 +33,7 @@ class ActividadesEmpresaControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Edit')->form(array(
-            'actividadeseconomicas_empresasbundle_actividadesempresatype[field_name]'  => 'Foo',
+            'sistema_sisreimpbundle_actividadesempresatype[field_name]'  => 'Foo',
             // ... other fields to fill
         ));
 

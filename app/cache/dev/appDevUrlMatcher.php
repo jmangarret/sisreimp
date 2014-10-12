@@ -388,6 +388,90 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/declaracion')) {
+            // declaracion
+            if (rtrim($pathinfo, '/') === '/declaracion') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_declaracion;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'declaracion');
+                }
+
+                return array (  '_controller' => 'Sistema\\SisreimpBundle\\Controller\\DeclaracionController::indexAction',  '_route' => 'declaracion',);
+            }
+            not_declaracion:
+
+            // declaracion_create
+            if ($pathinfo === '/declaracion/') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_declaracion_create;
+                }
+
+                return array (  '_controller' => 'Sistema\\SisreimpBundle\\Controller\\DeclaracionController::createAction',  '_route' => 'declaracion_create',);
+            }
+            not_declaracion_create:
+
+            // declaracion_new
+            if ($pathinfo === '/declaracion/new') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_declaracion_new;
+                }
+
+                return array (  '_controller' => 'Sistema\\SisreimpBundle\\Controller\\DeclaracionController::newAction',  '_route' => 'declaracion_new',);
+            }
+            not_declaracion_new:
+
+            // declaracion_show
+            if (preg_match('#^/declaracion/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_declaracion_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'declaracion_show')), array (  '_controller' => 'Sistema\\SisreimpBundle\\Controller\\DeclaracionController::showAction',));
+            }
+            not_declaracion_show:
+
+            // declaracion_edit
+            if (preg_match('#^/declaracion/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_declaracion_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'declaracion_edit')), array (  '_controller' => 'Sistema\\SisreimpBundle\\Controller\\DeclaracionController::editAction',));
+            }
+            not_declaracion_edit:
+
+            // declaracion_update
+            if (preg_match('#^/declaracion/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'PUT') {
+                    $allow[] = 'PUT';
+                    goto not_declaracion_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'declaracion_update')), array (  '_controller' => 'Sistema\\SisreimpBundle\\Controller\\DeclaracionController::updateAction',));
+            }
+            not_declaracion_update:
+
+            // declaracion_delete
+            if (preg_match('#^/declaracion/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'DELETE') {
+                    $allow[] = 'DELETE';
+                    goto not_declaracion_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'declaracion_delete')), array (  '_controller' => 'Sistema\\SisreimpBundle\\Controller\\DeclaracionController::deleteAction',));
+            }
+            not_declaracion_delete:
+
+        }
+
         // inicio_home
         if ($pathinfo === '/inicio') {
             return array (  '_controller' => 'Sistema\\SisreimpBundle\\Controller\\DefaultController::indexAction',  '_route' => 'inicio_home',);

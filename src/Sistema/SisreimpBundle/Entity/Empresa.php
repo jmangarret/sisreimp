@@ -3,6 +3,7 @@
 namespace Sistema\SisreimpBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Empresa
@@ -12,6 +13,18 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Empresa
 {
+    /**
+     * @ORM\OneToMany(targetEntity="Declaracion", mappedBy="Empresa")
+     */
+     protected $declaraciones;
+     
+     public function __construct()
+     {
+        $this->declaraciones = new ArrayCollection();
+     }
+    /*Para relacion uno a muchos*/
+
+
     /**
      * @var integer
      *
@@ -24,7 +37,8 @@ class Empresa
     /**
      * @var integer
      *
-     * @ORM\Column(name="contribuyente_id", type="integer")
+     * @ORM\ManyToOne(targetEntity="empresa", inversedBy="contribuyente")
+     * @ORM\JoinColumn(name="contribuyente_id", referencedColumnName="id")  
      */
     private $contribuyenteId;
 
@@ -383,5 +397,77 @@ class Empresa
     public function getStatus()
     {
         return $this->status;
+    }
+    
+     public function __toString()
+    {
+        return $this->getRazonSocial() . " - " . $this->getRif();
+    }
+    
+    /**
+     * Add empresas
+     *
+     * @param \Sistema\SisreimpBundle\Entity\Empresa $empresas
+     * @return Empresas
+     */
+    public function addEmpresa(\Sistema\SisreimpBundle\Entity\Empresa $empresas)
+    {
+        $this->empresas[] = $empresas;
+
+        return $this;
+    }
+
+    /**
+     * Remove empresas
+     *
+     * @param \Sistema\SisreimpBundle\Entity\Empresa $empresas
+     */
+    public function removeEmpresa(\Sistema\SisreimpBundle\Entity\Empresa $empresas)
+    {
+        $this->empresas->removeElement($empresas);
+    }
+
+    /**
+     * Get empresas
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEmpresas()
+    {
+        return $this->empresas;
+    }
+    
+
+    /**
+     * Add declaraciones
+     *
+     * @param \Sistema\SisreimpBundle\Entity\declaracion $declaraciones
+     * @return Empresa
+     */
+    public function addDeclaracione(\Sistema\SisreimpBundle\Entity\declaracion $declaraciones)
+    {
+        $this->declaraciones[] = $declaraciones;
+
+        return $this;
+    }
+
+    /**
+     * Remove declaraciones
+     *
+     * @param \Sistema\SisreimpBundle\Entity\declaracion $declaraciones
+     */
+    public function removeDeclaracione(\Sistema\SisreimpBundle\Entity\declaracion $declaraciones)
+    {
+        $this->declaraciones->removeElement($declaraciones);
+    }
+
+    /**
+     * Get declaraciones
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDeclaraciones()
+    {
+        return $this->declaraciones;
     }
 }

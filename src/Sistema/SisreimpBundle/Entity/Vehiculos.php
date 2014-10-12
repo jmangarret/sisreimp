@@ -24,7 +24,8 @@ class Vehiculos
     /**
      * @var integer
      *
-     * @ORM\Column(name="idContribuyente", type="integer")
+     * @ORM\ManyToOne(targetEntity="contribuyente", inversedBy="vehiculos")
+     * @ORM\JoinColumn(name="idcontribuyente", referencedColumnName="id")  
      */
     private $idContribuyente;
 

@@ -3304,7 +3304,7 @@ class appDevDebugProjectContainer extends Container
             'kernel.root_dir' => __DIR__.'/../..',
             'kernel.environment' => 'dev',
             'kernel.debug' => true,
-            'kernel.name' => 'ap_',
+            'kernel.name' => 'app',
             'kernel.cache_dir' => __DIR__,
             'kernel.logs_dir' => __DIR__.'/../../logs',
             'kernel.bundles' => array(

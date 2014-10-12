@@ -12,6 +12,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Clasificacion
 {
+	 /**
+	 * @ORM\OneToMany(targetEntity="ActividadesEmpresa", mappedBy="Clasificacion")
+	 */
+	 protected $actividadesempresas;
+	 public function __construct(){
+	  $this->actividadesempresas = new ArrayCollection();
+	 }
+
     /**
      * @var integer
      *
@@ -241,5 +249,43 @@ class Clasificacion
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Add actividadesempresas
+     *
+     * @param \Sistema\SisreimpBundle\Entity\ActividadesEmpresa $actividadesempresas
+     * @return Clasificacion
+     */
+    public function addActividadesempresa(\Sistema\SisreimpBundle\Entity\ActividadesEmpresa $actividadesempresas)
+    {
+        $this->actividadesempresas[] = $actividadesempresas;
+
+        return $this;
+    }
+
+    /**
+     * Remove actividadesempresas
+     *
+     * @param \Sistema\SisreimpBundle\Entity\ActividadesEmpresa $actividadesempresas
+     */
+    public function removeActividadesempresa(\Sistema\SisreimpBundle\Entity\ActividadesEmpresa $actividadesempresas)
+    {
+        $this->actividadesempresas->removeElement($actividadesempresas);
+    }
+
+    /**
+     * Get actividadesempresas
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getActividadesempresas()
+    {
+        return $this->actividadesempresas;
+    }
+	
+	public function __toString()
+    {
+        return $this->getNombre(). " ".$this->getCodigo();
     }
 }

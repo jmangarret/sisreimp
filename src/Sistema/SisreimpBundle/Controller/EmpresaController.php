@@ -50,8 +50,9 @@ class EmpresaController extends Controller
         $em = $this->getDoctrine()->getManager();
         $contribuyentes = $em->getRepository('SistemaSisreimpBundle:Contribuyente')->findAll();
         $entity->setFechaRegistro(new \DateTime('Now'));
-        $entity->setStatus("1");
+        $entity->setStatus(1);
         $frm=$form->getData();
+        
         print_r($frm);
 
         if ($form->isValid()) {

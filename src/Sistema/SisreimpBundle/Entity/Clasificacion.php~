@@ -1,17 +1,25 @@
 <?php
 
-namespace ActividadesEconomicas\EmpresasBundle\Entity;
+namespace Sistema\SisreimpBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Clasificacion
  *
- * @ORM\Table("empresas.actividades_economicas")
+ * @ORM\Table("actividades_economicas")
  * @ORM\Entity
  */
 class Clasificacion
 {
+	 /**
+	 * @ORM\OneToMany(targetEntity="ActividadesEmpresa", mappedBy="Clasificacion")
+	 */
+	 protected $actividadesempresas;
+	 public function __construct(){
+	  $this->actividadesempresas = new ArrayCollection();
+	 }
+
     /**
      * @var integer
      *
