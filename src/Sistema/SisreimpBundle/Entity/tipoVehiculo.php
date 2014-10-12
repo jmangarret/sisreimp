@@ -3,6 +3,8 @@
 namespace Sistema\SisreimpBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+/*Para relacion uno a muchos*/
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * tipoVehiculo
@@ -12,6 +14,31 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class tipoVehiculo
 {
+          
+       /**
+     * @ORM\OneToMany(targetEntity="Vehiculos", mappedBy="tipo")
+     */
+     protected $vehiculos;
+     public function __construct()
+     {
+        $this->vehiculos = new ArrayCollection();
+     }
+    
+     
+     /**
+     * Get Vehiculos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+     public function __toString() {
+         
+            return $this->tipo;
+         
+     }
+    
+    
+    
+    
     /**
      * @var integer
      *
@@ -22,9 +49,9 @@ class tipoVehiculo
     private $id;
 
     /**
-     * @var array
+     * @var string
      *
-     * @ORM\Column(name="tipo", type="array")
+     * @ORM\Column(name="tipo", type="string")
      */
     private $tipo;
 
@@ -63,7 +90,7 @@ class tipoVehiculo
     /**
      * Set tipo
      *
-     * @param array $tipo
+     * @param string $tipo
      * @return tipoVehiculo
      */
     public function setTipo($tipo)
@@ -76,7 +103,7 @@ class tipoVehiculo
     /**
      * Get tipo
      *
-     * @return array 
+     * @return string 
      */
     public function getTipo()
     {

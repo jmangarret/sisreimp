@@ -3,6 +3,8 @@
 namespace Sistema\SisreimpBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * Contribuyente
@@ -11,7 +13,17 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="Sistema\SisreimpBundle\Entity\ContribuyenteRepository")
  */
 class Contribuyente
-{
+{    
+       /**
+     * @ORM\OneToMany(targetEntity="Vehiculos", mappedBy="idContribuyente")
+     */
+     protected $vehiculos;
+     public function __construct()
+     {
+        $this->vehiculos = new ArrayCollection();
+     } 
+    
+    
     /**
      * @var integer
      *
