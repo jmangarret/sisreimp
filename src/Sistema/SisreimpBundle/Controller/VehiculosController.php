@@ -8,10 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sistema\SisreimpBundle\Entity\Vehiculos;
-<<<<<<< HEAD
-=======
 use Sistema\SisreimpBundle\Entity\VehiculoRepository;
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 use Sistema\SisreimpBundle\Form\VehiculosType;
 
 /**
@@ -19,13 +16,7 @@ use Sistema\SisreimpBundle\Form\VehiculosType;
  *
  * @Route("/vehiculos")
  */
-<<<<<<< HEAD
-class VehiculosController extends Controller
-{
-=======
 class VehiculosController extends Controller {
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
-
     /**
      * Lists all Vehiculos entities.
      *
@@ -33,12 +24,7 @@ class VehiculosController extends Controller {
      * @Method("GET")
      * @Template()
      */
-<<<<<<< HEAD
-    public function indexAction()
-    {
-=======
     public function indexAction() {
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('SistemaSisreimpBundle:Vehiculos')->findAll();
@@ -47,10 +33,7 @@ class VehiculosController extends Controller {
             'entities' => $entities,
         );
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
     /**
      * Creates a new Vehiculos entity.
      *
@@ -58,22 +41,15 @@ class VehiculosController extends Controller {
      * @Method("POST")
      * @Template("SistemaSisreimpBundle:Vehiculos:new.html.twig")
      */
-<<<<<<< HEAD
     public function createAction(Request $request)
     {
-=======
-    public function createAction(Request $request) {
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
         $entity = new Vehiculos();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-<<<<<<< HEAD
-=======
             $entity->setStatus(1);
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
             $em->persist($entity);
             $em->flush();
 
@@ -82,21 +58,6 @@ class VehiculosController extends Controller {
 
         return array(
             'entity' => $entity,
-<<<<<<< HEAD
-            'form'   => $form->createView(),
-        );
-    }
-
-    /**
-    * Creates a form to create a Vehiculos entity.
-    *
-    * @param Vehiculos $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createCreateForm(Vehiculos $entity)
-    {
-=======
             'form' => $form->createView(),
         );
     }
@@ -108,10 +69,6 @@ class VehiculosController extends Controller {
         $monto = $entities_vh->getCosto();
         
         //$fecha( date('Y')-  )
-        
-        
-        
-        
         $ano = $entities_vh->getAno();
         $tipo = $entities_vh->getTipo();
         $entities_tipo = $em->getRepository('SistemaSisreimpBundle:tipoVehiculo')->find($tipo);
@@ -128,7 +85,6 @@ class VehiculosController extends Controller {
      * @return \Symfony\Component\Form\Form The form
      */
     private function createCreateForm(Vehiculos $entity) {
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
         $form = $this->createForm(new VehiculosType(), $entity, array(
             'action' => $this->generateUrl('vehiculos_create'),
             'method' => 'POST',
@@ -146,16 +102,6 @@ class VehiculosController extends Controller {
      * @Method("GET")
      * @Template()
      */
-<<<<<<< HEAD
-    public function newAction()
-    {
-        $entity = new Vehiculos();
-        $form   = $this->createCreateForm($entity);
-
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-=======
     public function newAction() {
         $entity = new Vehiculos();
         $form = $this->createCreateForm($entity);
@@ -163,7 +109,6 @@ class VehiculosController extends Controller {
         return array(
             'entity' => $entity,
             'form' => $form->createView(),
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
         );
     }
 
@@ -174,20 +119,11 @@ class VehiculosController extends Controller {
      * @Method("GET")
      * @Template()
      */
-<<<<<<< HEAD
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('SistemaSisreimpBundle:Vehiculos')->find($id);
-
-=======
     public function showAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('SistemaSisreimpBundle:Vehiculos')->find($id);
         $imp = $this->impuestoVehiculo($id);
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Vehiculos entity.');
         }
@@ -195,12 +131,8 @@ class VehiculosController extends Controller {
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
-<<<<<<< HEAD
-            'entity'      => $entity,
-=======
             'entity' => $entity,
             'impuesto' => $imp,
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
             'delete_form' => $deleteForm->createView(),
         );
     }
@@ -212,12 +144,8 @@ class VehiculosController extends Controller {
      * @Method("GET")
      * @Template()
      */
-<<<<<<< HEAD
     public function editAction($id)
     {
-=======
-    public function editAction($id) {
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('SistemaSisreimpBundle:Vehiculos')->find($id);
@@ -230,19 +158,13 @@ class VehiculosController extends Controller {
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
-<<<<<<< HEAD
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-=======
             'entity' => $entity,
             'edit_form' => $editForm->createView(),
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
             'delete_form' => $deleteForm->createView(),
         );
     }
 
     /**
-<<<<<<< HEAD
     * Creates a form to edit a Vehiculos entity.
     *
     * @param Vehiculos $entity The entity
@@ -251,15 +173,6 @@ class VehiculosController extends Controller {
     */
     private function createEditForm(Vehiculos $entity)
     {
-=======
-     * Creates a form to edit a Vehiculos entity.
-     *
-     * @param Vehiculos $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createEditForm(Vehiculos $entity) {
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
         $form = $this->createForm(new VehiculosType(), $entity, array(
             'action' => $this->generateUrl('vehiculos_update', array('id' => $entity->getId())),
             'method' => 'PUT',
@@ -269,10 +182,7 @@ class VehiculosController extends Controller {
 
         return $form;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
     /**
      * Edits an existing Vehiculos entity.
      *
@@ -280,12 +190,8 @@ class VehiculosController extends Controller {
      * @Method("PUT")
      * @Template("SistemaSisreimpBundle:Vehiculos:edit.html.twig")
      */
-<<<<<<< HEAD
     public function updateAction(Request $request, $id)
     {
-=======
-    public function updateAction(Request $request, $id) {
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('SistemaSisreimpBundle:Vehiculos')->find($id);
@@ -305,32 +211,20 @@ class VehiculosController extends Controller {
         }
 
         return array(
-<<<<<<< HEAD
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
-    }
-=======
             'entity' => $entity,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
 
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
     /**
      * Deletes a Vehiculos entity.
      *
      * @Route("/{id}", name="vehiculos_delete")
      * @Method("DELETE")
      */
-<<<<<<< HEAD
     public function deleteAction(Request $request, $id)
     {
-=======
-    public function deleteAction(Request $request, $id) {
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
@@ -356,7 +250,6 @@ class VehiculosController extends Controller {
      *
      * @return \Symfony\Component\Form\Form The form
      */
-<<<<<<< HEAD
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
@@ -366,15 +259,4 @@ class VehiculosController extends Controller {
             ->getForm()
         ;
     }
-=======
-    private function createDeleteForm($id) {
-        return $this->createFormBuilder()
-                        ->setAction($this->generateUrl('vehiculos_delete', array('id' => $id)))
-                        ->setMethod('DELETE')
-                        ->add('submit', 'submit', array('label' => 'Delete'))
-                        ->getForm()
-        ;
-    }
-
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 }

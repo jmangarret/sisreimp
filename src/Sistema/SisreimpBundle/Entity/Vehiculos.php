@@ -20,15 +20,6 @@ class Vehiculos
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-<<<<<<< HEAD
-
-    /**
-     * @var integer
-     *
-     * @ORM\ManyToOne(targetEntity="contribuyente", inversedBy="vehiculos")
-     * @ORM\JoinColumn(name="idcontribuyente", referencedColumnName="id")  
-     */
-=======
  
     /**
      * @var integer
@@ -36,7 +27,6 @@ class Vehiculos
      * @ORM\ManyToOne(targetEntity="Contribuyente", inversedBy="vehiculos")
      * @ORM\JoinColumn(name="idContribuyente", referencedColumnName="id")
     */    
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
     private $idContribuyente;
 
     /**
@@ -63,15 +53,10 @@ class Vehiculos
     /**
      * @var integer
      *
-<<<<<<< HEAD
-     * @ORM\Column(name="tipo", type="integer")
-     */
-=======
      * @ORM\ManyToOne(targetEntity="tipoVehiculo", inversedBy="vehiculos")
      * @ORM\JoinColumn(name="tipo", referencedColumnName="id")
     */  
      
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
     private $tipo;
 
     /**

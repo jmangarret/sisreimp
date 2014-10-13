@@ -7,15 +7,9 @@
         <thead>
             <tr>
                 <th>Id</th>
-<<<<<<< HEAD
                 <th>Declaracion</th>
                 <th>Actividad</th>
                 <th>Ingresobruto</th>                                
-=======
-                <th>Idempresa</th>
-                <th>Idactividad</th>
-                <th>Fechainicio</th>
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
                 <th>Status</th>
                 <th>Actions</th>
             </tr>
@@ -24,15 +18,9 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('actividadesempresa_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-<<<<<<< HEAD
 				<td>{{ entity.idDeclaracion }}</td>	
 				<td>{{ entity.idActividad }}</td>                
                 <td>{{ entity.ingresoBruto }}</td>
-=======
-                <td>{{ entity.idEmpresa }}</td>
-                <td>{{ entity.idActividad }}</td>
-                <td>{% if entity.fechaInicio %}{{ entity.fechaInicio|date('Y-m-d H:i:s') }}{% endif %}</td>
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
                 <td>{{ entity.status }}</td>
                 <td>
                 <ul>

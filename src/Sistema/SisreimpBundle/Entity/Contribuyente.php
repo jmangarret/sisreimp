@@ -4,11 +4,7 @@ namespace Sistema\SisreimpBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-<<<<<<< HEAD
-=======
 
-
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 /**
  * Contribuyente
  *
@@ -16,30 +12,23 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Entity(repositoryClass="Sistema\SisreimpBundle\Entity\ContribuyenteRepository")
  */
 class Contribuyente
-<<<<<<< HEAD
-{
+{    
      /**
-     * @ORM\OneToMany(targetEntity="Vehiculos", mappedBy="Contribuyente")
+     * @ORM\OneToMany(targetEntity="Vehiculos", mappedBy="idContribuyente")
      */
      protected $vehiculos;
+
+     /**
+     * @ORM\OneToMany(targetEntity="Empresa", mappedBy="idContribuyente")
+     */
+     protected $empresas;
      
      public function __construct()
      {
         $this->vehiculos = new ArrayCollection();
-     }
-=======
-{    
-       /**
-     * @ORM\OneToMany(targetEntity="Vehiculos", mappedBy="idContribuyente")
-     */
-     protected $vehiculos;
-     public function __construct()
-     {
-        $this->vehiculos = new ArrayCollection();
-     } 
+        $this->empresas = new ArrayCollection();
+     }  
     
-    
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
     /**
      * @var integer
      *
@@ -244,4 +233,70 @@ class Contribuyente
     {
         return $this->getRif(). " ".$this->getNombre();
     }
+
+    /**
+     * Add empresas
+     *
+     * @param \Sistema\SisreimpBundle\Entity\Empresa $empresas
+     * @return Contribuyente
+     */
+    public function addEmpresas(\Sistema\SisreimpBundle\Entity\Empresa $empresas)
+    {
+        $this->empresas[] = $empresas;
+
+        return $this;
+    }
+
+    /**
+     * Remove empresas
+     *
+     * @param \Sistema\SisreimpBundle\Entity\Empresa $empresas
+     */
+    public function removeEmpresas(\Sistema\SisreimpBundle\Entity\Empresa $empresas)
+    {
+        $this->empresas->removeElement($empresas);
+    }
+
+    /**
+     * Get empresas
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEmpresas()
+    {
+        return $this->empresas;
+    }    
+    
+    /**
+     * Add vehiculos
+     *
+     * @param \Sistema\SisreimpBundle\Entity\Vehiculos $vehiculos
+     * @return Contribuyente
+     */
+    public function addVehiculos(\Sistema\SisreimpBundle\Entity\Vehiculos $vehiculos)
+    {
+        $this->vehiculos[] = $vehiculos;
+
+        return $this;
+    }
+
+    /**
+     * Remove vehiculos
+     *
+     * @param \Sistema\SisreimpBundle\Entity\Vehiculos $vehiculos
+     */
+    public function removeVehiculos(\Sistema\SisreimpBundle\Entity\Vehiculos $vehiculos)
+    {
+        $this->vehiculos->removeElement($vehiculos);
+    }
+
+    /**
+     * Get vehiculos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getVehiculos()
+    {
+        return $this->vehiculos;
+    }    
 }

@@ -3,6 +3,7 @@
 namespace Sistema\SisreimpBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Clasificacion
@@ -12,17 +13,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Clasificacion
 {
-<<<<<<< HEAD
 	 /**
-	 * @ORM\OneToMany(targetEntity="ActividadesEmpresa", mappedBy="Clasificacion")
+	 * @ORM\OneToMany(targetEntity="ActividadesEmpresa", mappedBy="idActividad")
 	 */
 	 protected $actividadesempresas;
 	 public function __construct(){
-	  $this->actividadesempresas = new ArrayCollection();
+		$this->actividadesempresas = new ArrayCollection();
 	 }
 
-=======
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
     /**
      * @var integer
      *
@@ -253,7 +251,6 @@ class Clasificacion
     {
         return $this->status;
     }
-<<<<<<< HEAD
 
     /**
      * Add actividadesempresas
@@ -292,6 +289,4 @@ class Clasificacion
     {
         return $this->getNombre(). " ".$this->getCodigo();
     }
-=======
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 }

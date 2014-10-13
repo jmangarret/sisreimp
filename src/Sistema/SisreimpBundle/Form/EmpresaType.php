@@ -15,7 +15,7 @@ class EmpresaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('contribuyenteId', 'hidden')
+            ->add('idContribuyente', 'hidden')
             ->add('rif')
             ->add('razonSocial')
             ->add('tipoContribuyente')

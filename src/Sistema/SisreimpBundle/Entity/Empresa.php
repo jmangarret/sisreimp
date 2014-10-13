@@ -3,10 +3,7 @@
 namespace Sistema\SisreimpBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-<<<<<<< HEAD
 use Doctrine\Common\Collections\ArrayCollection;
-=======
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 
 /**
  * Empresa
@@ -16,9 +13,9 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Empresa
 {
-    /**
-<<<<<<< HEAD
-     * @ORM\OneToMany(targetEntity="Declaracion", mappedBy="Empresa")
+ 
+    /*
+     * @ORM\OneToMany(targetEntity="Declaracion", mappedBy="idEmpresa")
      */
      protected $declaraciones;
      
@@ -26,12 +23,9 @@ class Empresa
      {
         $this->declaraciones = new ArrayCollection();
      }
-    /*Para relacion uno a muchos*/
-
+ 
 
     /**
-=======
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -43,14 +37,10 @@ class Empresa
     /**
      * @var integer
      *
-<<<<<<< HEAD
-     * @ORM\ManyToOne(targetEntity="empresa", inversedBy="contribuyente")
-     * @ORM\JoinColumn(name="contribuyente_id", referencedColumnName="id")  
-=======
-     * @ORM\Column(name="contribuyente_id", type="integer")
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
+     * @ORM\ManyToOne(targetEntity="Contribuyente", inversedBy="empresas")
+     * @ORM\JoinColumn(name="idContribuyente", referencedColumnName="id")  
      */
-    private $contribuyenteId;
+    private $idContribuyente;
 
     /**
      * @var string
@@ -134,26 +124,26 @@ class Empresa
     }
 
     /**
-     * Set contribuyenteId
+     * Set idContribuyente
      *
-     * @param integer $contribuyenteId
+     * @param integer $idContribuyente
      * @return Empresa
      */
-    public function setContribuyenteId($contribuyenteId)
+    public function setidContribuyente($idContribuyente)
     {
-        $this->contribuyenteId = $contribuyenteId;
+        $this->idContribuyente = $idContribuyente;
 
         return $this;
     }
 
     /**
-     * Get contribuyenteId
+     * Get idContribuyente
      *
      * @return integer 
      */
-    public function getContribuyenteId()
+    public function getidContribuyente()
     {
-        return $this->contribuyenteId;
+        return $this->idContribuyente;
     }
 
     /**
@@ -408,54 +398,20 @@ class Empresa
     {
         return $this->status;
     }
-<<<<<<< HEAD
     
      public function __toString()
     {
         return $this->getRazonSocial() . " - " . $this->getRif();
     }
     
-    /**
-     * Add empresas
-     *
-     * @param \Sistema\SisreimpBundle\Entity\Empresa $empresas
-     * @return Empresas
-     */
-    public function addEmpresa(\Sistema\SisreimpBundle\Entity\Empresa $empresas)
-    {
-        $this->empresas[] = $empresas;
-
-        return $this;
-    }
-
-    /**
-     * Remove empresas
-     *
-     * @param \Sistema\SisreimpBundle\Entity\Empresa $empresas
-     */
-    public function removeEmpresa(\Sistema\SisreimpBundle\Entity\Empresa $empresas)
-    {
-        $this->empresas->removeElement($empresas);
-    }
-
-    /**
-     * Get empresas
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getEmpresas()
-    {
-        return $this->empresas;
-    }
-    
 
     /**
      * Add declaraciones
      *
-     * @param \Sistema\SisreimpBundle\Entity\declaracion $declaraciones
+     * @param \Sistema\SisreimpBundle\Entity\Declaracion $declaraciones
      * @return Empresa
      */
-    public function addDeclaracione(\Sistema\SisreimpBundle\Entity\declaracion $declaraciones)
+    public function addDeclaraciones(\Sistema\SisreimpBundle\Entity\Declaracion $declaraciones)
     {
         $this->declaraciones[] = $declaraciones;
 
@@ -465,9 +421,9 @@ class Empresa
     /**
      * Remove declaraciones
      *
-     * @param \Sistema\SisreimpBundle\Entity\declaracion $declaraciones
+     * @param \Sistema\SisreimpBundle\Entity\Declaracion $declaraciones
      */
-    public function removeDeclaracione(\Sistema\SisreimpBundle\Entity\declaracion $declaraciones)
+    public function removeDeclaraciones(\Sistema\SisreimpBundle\Entity\Declaracion $declaraciones)
     {
         $this->declaraciones->removeElement($declaraciones);
     }
@@ -481,6 +437,4 @@ class Empresa
     {
         return $this->declaraciones;
     }
-=======
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 }

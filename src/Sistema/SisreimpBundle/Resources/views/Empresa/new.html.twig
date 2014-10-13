@@ -16,7 +16,7 @@
 			<td>Contribuyente</td>
 			<td>
 			<input type="text" name="contribuyenteNombre" readonly="true">
-			{{ form_widget(form.contribuyenteId) }}(*)
+			{{ form_widget(form.idContribuyente) }}(*)
 			<!-- #dialog es el id de un DIV definido en el código que está a continuación -->
         	<a href="#vmodal"><img src="{{asset('images/b_search.png')}}"></a>
 			</td>
@@ -93,17 +93,13 @@
 	                </td>
 	            </tr>
 	        {% endfor %}
-<<<<<<< HEAD
-	        <tr><td align="center"><a href="javascript:window.close()">Cerrar</a></td></tr>
-=======
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 	        </tbody>
 	    </table>
 		</div>
 	</div>		
 	<script>
 		function seleccionar(id, rif, nombre){
-			document.getElementById("sistema_sisreimpbundle_empresa_contribuyenteId").value=id;
+			document.getElementById("sistema_sisreimpbundle_empresa_idContribuyente").value=id;
 			document.getElementById("sistema_sisreimpbundle_empresa_rif").value=rif;
 			document.sistema_sisreimpbundle_empresa.contribuyenteNombre.value=nombre;
 			return true;

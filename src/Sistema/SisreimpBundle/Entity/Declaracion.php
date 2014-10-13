@@ -14,7 +14,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Declaracion
 {
 	 /**
-	 * @ORM\OneToMany(targetEntity="ActividadesEmpresa", mappedBy="Declaracion")
+	 * @ORM\OneToMany(targetEntity="ActividadesEmpresa", mappedBy="idDeclaracion")
 	 */
 	 protected $actividadesempresas;
 	 public function __construct(){
@@ -33,7 +33,7 @@ class Declaracion
     /**
      * @var integer
      *
-	 * @ORM\ManyToOne(targetEntity="Empresa", inversedBy="Declaraciones")
+	 * @ORM\ManyToOne(targetEntity="Empresa", inversedBy="declaraciones")
      * @ORM\JoinColumn(name="idempresa", referencedColumnName="id")     * 
      */
     private $idEmpresa;
@@ -198,7 +198,7 @@ class Declaracion
      * @param \Sistema\SisreimpBundle\Entity\ActividadesEmpresa $actividadesempresas
      * @return Declaracion
      */
-    public function addActividadesempresa(\Sistema\SisreimpBundle\Entity\ActividadesEmpresa $actividadesempresas)
+    public function addActividadesEmpresa(\Sistema\SisreimpBundle\Entity\ActividadesEmpresa $actividadesempresas)
     {
         $this->actividadesempresas[] = $actividadesempresas;
 
@@ -210,7 +210,7 @@ class Declaracion
      *
      * @param \Sistema\SisreimpBundle\Entity\ActividadesEmpresa $actividadesempresas
      */
-    public function removeActividadesempresa(\Sistema\SisreimpBundle\Entity\ActividadesEmpresa $actividadesempresas)
+    public function removeActividadesEmpresas(\Sistema\SisreimpBundle\Entity\ActividadesEmpresa $actividadesempresas)
     {
         $this->actividadesempresas->removeElement($actividadesempresas);
     }
@@ -220,7 +220,7 @@ class Declaracion
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getActividadesempresas()
+    public function getActividadesEmpresas()
     {
         return $this->actividadesempresas;
     }

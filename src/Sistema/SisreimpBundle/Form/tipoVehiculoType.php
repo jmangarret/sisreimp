@@ -15,17 +15,10 @@ class tipoVehiculoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-<<<<<<< HEAD
-            ->add('tipo','choice',array('choices'=>array(''=>'Seleccione..','1'=>'Carro','2'=>'Camioneta')))
-            ->add('montoImpuesto')
-            ->add('porcAlicuota')
-            ->add('status')
-=======
             ->add('tipo','choice',array('choices'=>array(''=>'Seleccione..','Carro'=>'Carro','Camioneta'=>'Camioneta')))
             ->add('montoImpuesto')
             ->add('porcAlicuota')
             //->add('status')
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
         ;
     }
     

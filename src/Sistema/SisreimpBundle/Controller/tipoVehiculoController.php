@@ -50,15 +50,9 @@ class tipoVehiculoController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-<<<<<<< HEAD
-            $em->persist($entity);
-            $em->flush();
-=======
             $entity->setStatus(1);
             $em->persist($entity);
             $em->flush();
-            
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 
             return $this->redirect($this->generateUrl('tipovehiculo_show', array('id' => $entity->getId())));
         }

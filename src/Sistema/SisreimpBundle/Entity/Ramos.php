@@ -3,8 +3,6 @@
 namespace Sistema\SisreimpBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
-/*Para relacion uno a muchos*/
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -18,14 +16,10 @@ class Ramos
     /**
      * @ORM\OneToMany(targetEntity="Clasificacion", mappedBy="idRamo")
      */
-     protected $ramos;
+     protected $actividades;
      public function __construct()
      {
-<<<<<<< HEAD
-        $this->ramos = new ArrayCollection();
-=======
-        $this->tiposImpuestos = new ArrayCollection();
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
+        $this->actividades = new ArrayCollection();
      }
     /*Para relacion uno a muchos*/
 
@@ -146,35 +140,35 @@ class Ramos
     }
 
     /**
-     * Add ramos
+     * Add actividades
      *
-     * @param \Sistema\SisreimpBundle\Entity\Clasificacion $ramos
-     * @return Ramos
+     * @param \Sistema\SisreimpBundle\Entity\Clasificacion $actividades
+     * @return actividades
      */
-    public function addRamo(\Sistema\SisreimpBundle\Entity\Clasificacion $ramos)
+    public function addActividad(\Sistema\SisreimpBundle\Entity\Clasificacion $actividades)
     {
-        $this->ramos[] = $ramos;
+        $this->actividades[] = $actividades;
 
         return $this;
     }
 
     /**
-     * Remove ramos
+     * Remove actividades
      *
-     * @param \Sistema\SisreimpBundle\Entity\Clasificacion $ramos
+     * @param \Sistema\SisreimpBundle\Entity\Clasificacion $actividades
      */
-    public function removeRamo(\Sistema\SisreimpBundle\Entity\Clasificacion $ramos)
+    public function removeActividad(\Sistema\SisreimpBundle\Entity\Clasificacion $actividades)
     {
-        $this->ramos->removeElement($ramos);
+        $this->actividades->removeElement($actividades);
     }
 
     /**
-     * Get ramos
+     * Get actividades
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getRamos()
+    public function getActividades()
     {
-        return $this->ramos;
+        return $this->actividades;
     }
 }

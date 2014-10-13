@@ -25,20 +25,12 @@ class ActividadesEmpresaController extends Controller
      * @Method("GET")
      * @Template()
      */
-<<<<<<< HEAD
     public function indexAction()
-=======
-    static function indexAction()
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
     {
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('SistemaSisreimpBundle:ActividadesEmpresa')->findAll();
 
-<<<<<<< HEAD
-=======
-        
->>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
         return array(
             'entities' => $entities,
         );
