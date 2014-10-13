@@ -1,17 +1,26 @@
 <?php
 
+<<<<<<< HEAD
 namespace Sistema\SisreimpBundle\Entity;
+=======
+namespace ActividadesEconomicas\EmpresasBundle\Entity;
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Clasificacion
  *
+<<<<<<< HEAD
  * @ORM\Table("actividades_economicas")
+=======
+ * @ORM\Table("empresas.actividades_economicas")
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
  * @ORM\Entity
  */
 class Clasificacion
 {
+<<<<<<< HEAD
 	 /**
 	 * @ORM\OneToMany(targetEntity="ActividadesEmpresa", mappedBy="Clasificacion")
 	 */
@@ -20,6 +29,8 @@ class Clasificacion
 	  $this->actividadesempresas = new ArrayCollection();
 	 }
 
+=======
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
     /**
      * @var integer
      *

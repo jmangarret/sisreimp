@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Clasificacion
 {
+<<<<<<< HEAD
 	 /**
 	 * @ORM\OneToMany(targetEntity="ActividadesEmpresa", mappedBy="Clasificacion")
 	 */
@@ -20,6 +21,8 @@ class Clasificacion
 	  $this->actividadesempresas = new ArrayCollection();
 	 }
 
+=======
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
     /**
      * @var integer
      *
@@ -250,6 +253,7 @@ class Clasificacion
     {
         return $this->status;
     }
+<<<<<<< HEAD
 
     /**
      * Add actividadesempresas
@@ -288,4 +292,6 @@ class Clasificacion
     {
         return $this->getNombre(). " ".$this->getCodigo();
     }
+=======
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 }

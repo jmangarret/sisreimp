@@ -3,7 +3,10 @@
 namespace Sistema\SisreimpBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+<<<<<<< HEAD
 use Doctrine\Common\Collections\ArrayCollection;
+=======
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 
 /**
  * Empresa
@@ -14,6 +17,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Empresa
 {
     /**
+<<<<<<< HEAD
      * @ORM\OneToMany(targetEntity="Declaracion", mappedBy="Empresa")
      */
      protected $declaraciones;
@@ -26,6 +30,8 @@ class Empresa
 
 
     /**
+=======
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -37,8 +43,12 @@ class Empresa
     /**
      * @var integer
      *
+<<<<<<< HEAD
      * @ORM\ManyToOne(targetEntity="empresa", inversedBy="contribuyente")
      * @ORM\JoinColumn(name="contribuyente_id", referencedColumnName="id")  
+=======
+     * @ORM\Column(name="contribuyente_id", type="integer")
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
      */
     private $contribuyenteId;
 
@@ -398,6 +408,7 @@ class Empresa
     {
         return $this->status;
     }
+<<<<<<< HEAD
     
      public function __toString()
     {
@@ -470,4 +481,6 @@ class Empresa
     {
         return $this->declaraciones;
     }
+=======
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 }

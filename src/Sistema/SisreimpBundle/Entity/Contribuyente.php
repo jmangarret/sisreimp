@@ -4,6 +4,11 @@ namespace Sistema\SisreimpBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 /**
  * Contribuyente
  *
@@ -11,6 +16,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Entity(repositoryClass="Sistema\SisreimpBundle\Entity\ContribuyenteRepository")
  */
 class Contribuyente
+<<<<<<< HEAD
 {
      /**
      * @ORM\OneToMany(targetEntity="Vehiculos", mappedBy="Contribuyente")
@@ -21,6 +27,19 @@ class Contribuyente
      {
         $this->vehiculos = new ArrayCollection();
      }
+=======
+{    
+       /**
+     * @ORM\OneToMany(targetEntity="Vehiculos", mappedBy="idContribuyente")
+     */
+     protected $vehiculos;
+     public function __construct()
+     {
+        $this->vehiculos = new ArrayCollection();
+     } 
+    
+    
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
     /**
      * @var integer
      *

@@ -15,9 +15,15 @@ class ActividadesEmpresaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+<<<<<<< HEAD
             ->add('idDeclaracion')
             ->add('idActividad')
             ->add('ingresoBruto')
+=======
+            ->add('idEmpresa')
+            ->add('idActividad')
+            ->add('fechaInicio')
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
             ->add('status')
         ;
     }
@@ -37,6 +43,10 @@ class ActividadesEmpresaType extends AbstractType
      */
     public function getName()
     {
+<<<<<<< HEAD
         return 'sistema_sisreimpbundle_actividadesempresa';
+=======
+        return 'sistema_SisreimpBundle_actividadesempresa';
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
     }
 }

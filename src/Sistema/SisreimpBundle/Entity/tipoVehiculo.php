@@ -3,6 +3,11 @@
 namespace Sistema\SisreimpBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+<<<<<<< HEAD
+=======
+/*Para relacion uno a muchos*/
+use Doctrine\Common\Collections\ArrayCollection;
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 
 /**
  * tipoVehiculo
@@ -12,6 +17,34 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class tipoVehiculo
 {
+<<<<<<< HEAD
+=======
+          
+       /**
+     * @ORM\OneToMany(targetEntity="Vehiculos", mappedBy="tipo")
+     */
+     protected $vehiculos;
+     public function __construct()
+     {
+        $this->vehiculos = new ArrayCollection();
+     }
+    
+     
+     /**
+     * Get Vehiculos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+     public function __toString() {
+         
+            return $this->tipo;
+         
+     }
+    
+    
+    
+    
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
     /**
      * @var integer
      *
@@ -22,9 +55,15 @@ class tipoVehiculo
     private $id;
 
     /**
+<<<<<<< HEAD
      * @var array
      *
      * @ORM\Column(name="tipo", type="array")
+=======
+     * @var string
+     *
+     * @ORM\Column(name="tipo", type="string")
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
      */
     private $tipo;
 
@@ -63,7 +102,11 @@ class tipoVehiculo
     /**
      * Set tipo
      *
+<<<<<<< HEAD
      * @param array $tipo
+=======
+     * @param string $tipo
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
      * @return tipoVehiculo
      */
     public function setTipo($tipo)
@@ -76,7 +119,11 @@ class tipoVehiculo
     /**
      * Get tipo
      *
+<<<<<<< HEAD
      * @return array 
+=======
+     * @return string 
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
      */
     public function getTipo()
     {

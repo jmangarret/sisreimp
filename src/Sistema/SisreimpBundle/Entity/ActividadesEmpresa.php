@@ -24,26 +24,44 @@ class ActividadesEmpresa
     /**
      * @var integer
      *
+<<<<<<< HEAD
 	 * @ORM\ManyToOne(targetEntity="Declaracion", inversedBy="ActividadesEmpresas")
      * @ORM\JoinColumn(name="iddeclaracion", referencedColumnName="id")     * 
      */
     private $idDeclaracion;
+=======
+     * @ORM\Column(name="idEmpresa", type="integer")
+     */
+    private $idEmpresa;
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 
     /**
      * @var integer
      *
+<<<<<<< HEAD
 	 * @ORM\ManyToOne(targetEntity="Clasificacion", inversedBy="ActividadesEmpresas")
      * @ORM\JoinColumn(name="idactividad", referencedColumnName="id")     * 
 
+=======
+     * @ORM\Column(name="idActividad", type="integer")
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
      */
     private $idActividad;
 
     /**
+<<<<<<< HEAD
      * @var string
      *
      * @ORM\Column(name="ingreso_bruto", type="decimal")
      */
     private $ingresoBruto;
+=======
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaInicio", type="date")
+     */
+    private $fechaInicio;
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 
     /**
      * @var integer
@@ -64,6 +82,7 @@ class ActividadesEmpresa
     }
 
     /**
+<<<<<<< HEAD
      * Set idDeclaracion
      *
      * @param \Sistema\SisreimpBundle\Entity\Declaracion $idDeclaracion
@@ -72,11 +91,22 @@ class ActividadesEmpresa
     public function setIdDeclaracion(\Sistema\SisreimpBundle\Entity\Declaracion $idDeclaracion = null)
     {
         $this->idDeclaracion = $idDeclaracion;
+=======
+     * Set idEmpresa
+     *
+     * @param integer $idEmpresa
+     * @return ActividadesEmpresa
+     */
+    public function setIdEmpresa($idEmpresa)
+    {
+        $this->idEmpresa = $idEmpresa;
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 
         return $this;
     }
 
     /**
+<<<<<<< HEAD
      * Get idDeclaracion
      *
      * @return \Sistema\SisreimpBundle\Entity\Declaracion 
@@ -84,6 +114,15 @@ class ActividadesEmpresa
     public function getIdDeclaracion()
     {
         return $this->idDeclaracion;
+=======
+     * Get idEmpresa
+     *
+     * @return integer 
+     */
+    public function getIdEmpresa()
+    {
+        return $this->idEmpresa;
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
     }
 
     /**
@@ -110,6 +149,7 @@ class ActividadesEmpresa
     }
 
     /**
+<<<<<<< HEAD
      * Set ingresoBruto
      *
      * @param string $ingresoBruto
@@ -118,11 +158,22 @@ class ActividadesEmpresa
     public function setIngresoBruto($ingresoBruto)
     {
         $this->ingresoBruto = $ingresoBruto;
+=======
+     * Set fechaInicio
+     *
+     * @param \DateTime $fechaInicio
+     * @return ActividadesEmpresa
+     */
+    public function setFechaInicio($fechaInicio)
+    {
+        $this->fechaInicio = $fechaInicio;
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 
         return $this;
     }
 
     /**
+<<<<<<< HEAD
      * Get ingresoBruto
      *
      * @return string 
@@ -133,6 +184,17 @@ class ActividadesEmpresa
     }
 
 
+=======
+     * Get fechaInicio
+     *
+     * @return \DateTime 
+     */
+    public function getFechaInicio()
+    {
+        return $this->fechaInicio;
+    }
+
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
     /**
      * Set status
      *
@@ -155,5 +217,8 @@ class ActividadesEmpresa
     {
         return $this->status;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> f61603c4178bde61c131191bc46546d83fa407b1
 }
